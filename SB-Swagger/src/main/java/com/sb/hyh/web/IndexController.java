@@ -1,29 +1,31 @@
-package com.kong.web;
+package com.sb.hyh.web;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class IndexController {
 
     /**
      * swagger:DEFAULT_INCLUDE_PATTERN = "/api/.*";
      */
     @RequestMapping("/api/test")
-    @ResponseBody
     public String login() {
         return "Hello World!";
     }
 
+    /**
+     * 忽略
+     */
     @RequestMapping("/api")
-    @ResponseBody
     public String api() {
         return "Hello World!";
     }
 
+    /**
+     * 忽略
+     */
     @RequestMapping("/test")
-    @ResponseBody
     public String test() {
         return "Hello World!";
     }
