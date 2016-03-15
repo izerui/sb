@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.sb.hyh</groupId>
-	<artifactId>SB-Thymeleaf</artifactId>
+	<artifactId>SB-Druid</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>SB-Thymeleaf</name>
+	<name>SB-Druid</name>
 	<url>http://maven.apache.org</url>
 
 	<parent>
@@ -19,6 +19,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<druid.version>1.0.11</druid.version>
 	</properties>
 
 	<dependencies>
@@ -38,6 +39,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jetty</artifactId>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
 		</dependency>
 	</dependencies>
 
