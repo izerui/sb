@@ -1,4 +1,4 @@
-package com.ac.springboot.web;
+package com.sb.hyh.web;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ac.springboot.entity.Student;
-import com.ac.springboot.service.StudentService;
+import com.sb.hyh.entity.Student;
+import com.sb.hyh.service.StudentService;
 
 @RestController
 @RequestMapping("/stu")
