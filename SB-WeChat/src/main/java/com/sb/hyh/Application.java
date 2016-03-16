@@ -7,10 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan(basePackages = "com.wechat")
-public class WeChatApplication {
+@ComponentScan(basePackages = "com.sb.hyh")
+public class Application {
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(WeChatApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
