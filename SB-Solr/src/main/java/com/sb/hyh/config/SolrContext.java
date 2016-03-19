@@ -28,7 +28,6 @@ public class SolrContext {
 		server.setFollowRedirects(followRedirects);
 		server.setAllowCompression(allowCompression);
 		server.setMaxRetries(maxRetries);
-
 		return server;
 	}
 }
