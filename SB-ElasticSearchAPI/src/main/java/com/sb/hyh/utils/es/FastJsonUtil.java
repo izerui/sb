@@ -1,4 +1,4 @@
-package com.hyh.utils.es;
+package com.sb.hyh.utils.es;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.hyh.es.entity;
+package com.sb.hyh.es.entity;
 
 import io.searchbox.annotations.JestId;
 

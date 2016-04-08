@@ -1,11 +1,11 @@
-package com.hyh.jest.service.test;
+package com.sb.hyh.test;
 
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.junit.Test;
 
-import com.hyh.es.entity.News;
-import com.hyh.utils.es.JestUtil;
+import com.sb.hyh.es.entity.News;
+import com.sb.hyh.utils.es.JestUtil;
 
 public class JestUtilTest {
 

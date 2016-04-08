@@ -1,9 +1,9 @@
-package com.hyh.es.entity;
+package com.sb.hyh.es.entity;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import com.hyh.utils.es.FastJsonUtil;
+import com.sb.hyh.utils.es.FastJsonUtil;
 
 public class MakeDataFactory {
 	public static MakeDataFactory dataFactory = new MakeDataFactory();

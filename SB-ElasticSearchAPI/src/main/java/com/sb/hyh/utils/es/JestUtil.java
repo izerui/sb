@@ -1,4 +1,4 @@
-package com.hyh.utils.es;
+package com.sb.hyh.utils.es;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -9,7 +9,7 @@ import org.elasticsearch.search.builder.SearchSourceBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.hyh.es.entity.News;
+import com.sb.hyh.es.entity.News;
 
 import io.searchbox.client.JestClient;
 import io.searchbox.client.JestClientFactory;
