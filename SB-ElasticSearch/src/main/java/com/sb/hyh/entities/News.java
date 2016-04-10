@@ -19,7 +19,7 @@ import lombok.Data;
 import lombok.ToString;
 
 @Data
-@Document(indexName = "mitakev1", type = "news", shards = 10, replicas = 0, refreshInterval = "-1")
+@Document(indexName = "hong", type = "news", shards = 10, replicas = 0, refreshInterval = "-1")
 public class News {
     @Id
     private String id;
