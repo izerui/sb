@@ -8,14 +8,14 @@ import com.mongodb.DB;
 
 @Component
 public class MongoDbClient {
-	private final MongoDbFactory mongoDbFactory;
+    private final MongoDbFactory mongoDbFactory;
 
-	@Autowired
-	public MongoDbClient(MongoDbFactory mongoDbFactory) {
-		this.mongoDbFactory = mongoDbFactory;
-	}
+    @Autowired
+    public MongoDbClient(MongoDbFactory mongoDbFactory) {
+        this.mongoDbFactory = mongoDbFactory;
+    }
 
-	public DB example() {
-		return mongoDbFactory.getDb();
-	}
+    public DB example() {
+        return mongoDbFactory.getDb();
+    }
 }
