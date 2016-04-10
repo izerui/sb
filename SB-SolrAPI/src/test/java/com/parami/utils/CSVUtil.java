@@ -68,7 +68,7 @@ public class CSVUtil {
 	}
 
 	public static void importCsv(File file) {
-		SolrUtil solrUtil = new SolrUtil("http://172.17.80.167:8080/solr/product");
+		SolrUtil solrUtil = new SolrUtil("http://127.0.0.1:8080/solr/product");
 
 		Collection<SolrInputDocument> docs = new LinkedList<SolrInputDocument>();
 		BufferedReader br = null;
