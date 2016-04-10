@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/hello")
 public class HelloController {
     @Value("${application.hello}")
     private String hello;
 
-    @RequestMapping
+    @RequestMapping("/hello")
     public String hello() {
         return "Hello Spring-Boot";
     }

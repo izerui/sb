@@ -1,0 +1,17 @@
+plugin -install mobz/elasticsearch-head
+
+curl -XGET localhost:9200/conac_yuqing_web/_mapping?pretty
+
+curl -XDELETE http://locahost:9200/conac_yuqing_web/2223333
+
+POST _search
+{
+    "query": {
+        "match_all": {}
+    }
+}
+
+
+
+
+
