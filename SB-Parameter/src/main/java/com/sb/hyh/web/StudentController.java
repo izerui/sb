@@ -19,9 +19,9 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 
-	@RequestMapping("/list")
-	public List<Student> getStus() {
-		logger.info("从数据库读取Student集合");
-		return studentService.getList();
-	}
+//	@RequestMapping("/list")
+//	public List<Student> getStus() {
+//		logger.info("从数据库读取Student集合");
+//		return studentService.getList();
+//	}
 }
