@@ -1,6 +1,7 @@
 package com.sb.hyh.utils.es;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -124,7 +125,8 @@ public class ElasticSearchUtil {
                 Integer id = (Integer) hit.getSource().get("id");
                 String name = (String) hit.getSource().get("name");
                 String function = (String) hit.getSource().get("function");
-                list.add(new Medicine(id, name, function));
+                Date date = new Date((Long) hit.getSource().get("date"));
+                list.add(new Medicine(id, name, function, date));
             }
         }
         return list;

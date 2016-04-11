@@ -36,7 +36,9 @@ public class GeoDistanceTest {
      * "not_analyzed")
      */
     public static XContentBuilder mapping(String index, String type) throws IOException {
-        return XContentFactory.jsonBuilder().startObject()
+        return XContentFactory.jsonBuilder()
+                //
+                .startObject()
                 //
                 .startObject(type)
                 //
@@ -52,7 +54,9 @@ public class GeoDistanceTest {
                 //
                 .startObject("type").field("type", "integer").endObject()
                 //
-                .startObject("createDate").field("type", "date").endObject().endObject()
+                .startObject("createDate").field("type", "date").endObject()
+                //
+                .endObject()
                 //
                 .endObject()
                 //
@@ -62,15 +66,25 @@ public class GeoDistanceTest {
     public static XContentBuilder createMapping(String type) {
         XContentBuilder mapping = null;
         try {
-            mapping = jsonBuilder().startObject()
+            mapping = jsonBuilder()
+                    //
+                    .startObject()
                     // 索引库名（类似数据库中的表）
-                    .startObject(type).startObject("properties")
+                    .startObject(type)
+                    //
+                    .startObject("properties")
                     // ID
                     .startObject("id").field("type", "long").endObject()
                     // 姓名
                     .startObject("name").field("type", "string").endObject()
                     // 位置
-                    .startObject("location").field("type", "geo_point").endObject().endObject().endObject().endObject();
+                    .startObject("location").field("type", "geo_point").endObject()
+                    //
+                    .endObject()
+                    //
+                    .endObject()
+                    //
+                    .endObject();
         } catch (IOException e) {
             e.printStackTrace();
         }
