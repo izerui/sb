@@ -1,45 +1,49 @@
 package com.sb.hyh.es.entity;
 
+import java.util.Date;
+
 public class Medicine {
-	private Integer id;
-	private String name;
-	private String function;
+    private Integer id;
+    private String name;
+    private String function;
+    private Date date;
 
-	public Medicine() {
-	}
+    public Medicine(Integer id, String name, String function, Date date) {
+        this.id = id;
+        this.name = name;
+        this.function = function;
+        this.date = date;
+    }
 
-	public Medicine(Integer id, String name, String function) {
-		this.id = id;
-		this.name = name;
-		this.function = function;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getFunction() {
+        return function;
+    }
 
-	public String getFunction() {
-		return function;
-	}
+    public void setFunction(String function) {
+        this.function = function;
+    }
 
-	public void setFunction(String function) {
-		this.function = function;
-	}
+    public Date getDate() {
+        return date;
+    }
 
-	@Override
-	public String toString() {
-		return "Medicine [id=" + id + ", name=" + name + ", function=" + function + "]";
-	}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }

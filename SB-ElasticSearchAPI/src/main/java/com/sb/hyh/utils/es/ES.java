@@ -11,7 +11,7 @@ public class ES {
         Settings settings = ImmutableSettings.settingsBuilder().put("client.transport.ping_timeout", "10s")
                 .put("client.transport.sniff", true)
                 // 创建索引之后最多在n秒之内肯定能查到
-                .put("index.refresh_interval", "1s").put("cluster.name", "elasticsearch").build();
+                .put("index.refresh_interval", "1s").put("cluster.name", "elk").build();
         return new TransportClient(settings).addTransportAddress(new InetSocketTransportAddress(ipAddress, 9300));
     }
 }

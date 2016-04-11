@@ -1,6 +1,7 @@
 package com.sb.hyh.utils.es;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ import org.elasticsearch.search.SearchHits;
 import com.sb.hyh.es.entity.Medicine;
 
 public class ElasticSearchUtil {
-    private static Client client = ES.getElasticSearch("172.17.80.110");
+    private static Client client = ES.getElasticSearch("172.17.80.108");
 
     public static void createIndex(String index) {
         if (!isExistIndex(index)) {
@@ -124,7 +125,8 @@ public class ElasticSearchUtil {
                 Integer id = (Integer) hit.getSource().get("id");
                 String name = (String) hit.getSource().get("name");
                 String function = (String) hit.getSource().get("function");
-                list.add(new Medicine(id, name, function));
+                Date date = new Date((Long) hit.getSource().get("date"));
+                list.add(new Medicine(id, name, function, date));
             }
         }
         return list;

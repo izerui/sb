@@ -14,7 +14,12 @@ import lombok.Data;
 public class Book {
     @Id
     private String id;
+
     private String title;
+    private String name;
+    private float price;
+    private boolean available;
+
     @Field(type = FieldType.Nested)
     private List<Tag> tags;
 }
