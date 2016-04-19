@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring表单验证</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>表单处理演示</h1>
+    <form action="#" th:action="@{/sayhello}" th:object="${helloMessage}" method="post">
+        <p>friend: <input type="text" th:field="*{name}" /></p>
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
+        <p>message: <input type="text" th:field="*{message}" /></p>
+        <p th:if="${#fields.hasErrors('message')}" th:errors="*{message}">message Error</p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>

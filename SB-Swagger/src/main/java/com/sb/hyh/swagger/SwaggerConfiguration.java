@@ -23,6 +23,8 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @EnableSwagger2
 public class SwaggerConfiguration implements EnvironmentAware {
     private final Logger log = LoggerFactory.getLogger(SwaggerConfiguration.class);
+    private RelaxedPropertyResolver propertyResolver;
+
     /**
      * /api/二级url
      */
@@ -31,7 +33,6 @@ public class SwaggerConfiguration implements EnvironmentAware {
      * 所有url
      */
     public static final String DEFAULT_INCLUDE_PATTERN = "/.*";
-    private RelaxedPropertyResolver propertyResolver;
 
     @Override
     public void setEnvironment(Environment environment) {
@@ -41,11 +42,13 @@ public class SwaggerConfiguration implements EnvironmentAware {
     @Bean
     public Docket swaggerSpringfoxDocket() {
         log.debug("Starting Swagger");
+
         StopWatch watch = new StopWatch();
         watch.start();
         Docket swaggerSpringMvcPlugin = new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
                 .genericModelSubstitutes(ResponseEntity.class).select().paths(regex(DEFAULT_INCLUDE_PATTERN)).build();
         watch.stop();
+
         log.debug("Started Swagger in {} ms", watch.getTotalTimeMillis());
         return swaggerSpringMvcPlugin;
     }

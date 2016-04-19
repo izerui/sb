@@ -1,7 +1,5 @@
 package com.sb.hyh.service;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,11 +19,7 @@ public class NewsService {
         this.repository.deleteAll();
     }
 
-    public void save() {
-        News news = new News();
-        news.setContent("中文");
-        news.setCreatedDateTime(new Date());
-        news.setLink("http://www.baidu.com");
+    public void save(News news) {
         this.repository.save(news);
     }
 }

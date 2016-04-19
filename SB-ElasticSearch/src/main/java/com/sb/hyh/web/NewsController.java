@@ -1,5 +1,7 @@
 package com.sb.hyh.web;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +21,13 @@ public class NewsController {
 
     @RequestMapping(value = "/save", method = RequestMethod.GET)
     public ResponseEntity<?> save() {
+        News news = new News();
+        news.setContent("中文");
+        news.setCreatedDateTime(new Date());
+        news.setLink("http://www.baidu.com");
         ResponseEntity<?> response = null;
         try {
-            newsService.save();
+            newsService.save(news);
             response = new ResponseEntity<Void>(HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
