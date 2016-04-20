@@ -35,7 +35,7 @@ public class ElasticSearchUtilTest {
     }
 
     @Test
-    public void testAddData() {
+    public void testAdd() {
         List<String> jsonList = MakeDataFactory.getInitJsonData();
         String index = "index";
         String type = "news";

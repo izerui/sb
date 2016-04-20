@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: demoapp
+  cloud:
+    zookeeper:
+        enabled: true
+        connectString: 172.17.80.167:2181
+    config:
+      # TODO: refactor spring-cloud-config to use refresh, etc.. with out config client
+      enabled: true

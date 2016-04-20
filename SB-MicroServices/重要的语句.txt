@@ -1,0 +1,15 @@
+https://spring.io/blog/2015/07/14/microservices-with-spring
+https://spring.io/blog/2015/01/20/microservice-registration-and-discovery-with-spring-cloud-and-netflix-s-eureka
+
+nohup java -jar -Xms128m -Xmx512m microservice-demo-0.0.1-SNAPSHOT.jar registration 7901 &
+
+-javaagent:/Users/qiya/springloaded-1.2.3.RELEASE.jar -noverify
+
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@172.17.80.103:1521:sirac
+    username: new_bpp
+    password: new_bpp
+
+
+

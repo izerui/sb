@@ -35,7 +35,7 @@ import org.elasticsearch.search.SearchHits;
 import com.sb.hyh.es.entity.Medicine;
 
 public class ElasticSearchUtil {
-    private static Client client = ES.getElasticSearch("172.17.80.110");
+    private static Client client = ES.getElasticSearch("172.17.80.108");
 
     public static void createIndex(String index) {
         if (!isExistIndex(index)) {

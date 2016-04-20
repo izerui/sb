@@ -1,8 +1,6 @@
 package com.sb.hyh.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.sb.hyh.entities.Book;
@@ -27,10 +25,5 @@ public class BookServiceImpl implements BookService {
     @Override
     public Iterable<Book> findAll() {
         return bookRepository.findAll();
-    }
-
-    @Override
-    public Page<Book> findByTagsName(String tagName, PageRequest pageRequest) {
-        return bookRepository.findByTagsName(tagName, pageRequest);
     }
 }
