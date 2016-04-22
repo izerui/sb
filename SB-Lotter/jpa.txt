@@ -1,0 +1,15 @@
+@GeneratedValue是用来申明一个主键的，用来提供主键的生成策略。
+ 
+@Id
+@GeneratedValue(strategy=SEQUENCE, generator="CUST_SEQ")
+@Column(name="CUST_ID")
+public Long getId() { return id; }
+
+@Id
+@GeneratedValue(strategy=TABLE, generator="CUST_GEN")
+@Column(name="CUST_ID")
+Long id;     
+ 
+hibernate
+@GeneratedValue(generator = "uuid")
+@GenericGenerator(name = "uuid", strategy = "uuid")
