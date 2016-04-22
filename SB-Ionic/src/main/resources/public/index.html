@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+	<title>Boot Ionic Example</title>
+    <link rel="stylesheet" href="css/ionic.css"/>
+ </head>
+<body>
+    <ion-nav-bar class="bar-positive nav-title-slide-ios7"></ion-nav-bar>
+    <ion-nav-view animation="slide-left-right">
+        <div class="alert alert-danger" ng-show="error">{{error}}</div>
+    </ion-nav-view>
+    <ion-footer-bar class="bar-dark" ng-show="user">
+        <button class="button button-assertive" ng-click="logout()">
+            Logout
+        </button>
+    </ion-footer-bar>
+
+    <script src="js/ionic.bundle.js"></script>
+    <script src="webjars/angularjs/1.2.13/angular-resource.js"></script>
+    <script src="webjars/angularjs/1.2.13/angular-cookies.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>

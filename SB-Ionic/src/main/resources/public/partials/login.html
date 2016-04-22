@@ -1,0 +1,27 @@
+<ion-view title="Login">
+    <ion-content>
+        <div class="padding" style="padding-bottom: 0">
+            <h2>Welcome to Boot Ionic!</h2>
+            <p>Login with either user:user to read entries or with admin:admin to read and edit entries.</p>
+        </div>
+
+        <form novalidate="novalidate">
+            <div class="list card">
+                <label class="item item-input">
+                    <span class="input-label">User Name</span>
+                    <input type="text" ng-model="credentials.username" required="required" name="email">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" ng-model="credentials.password" name="password" required="required">
+                </label>
+            </div>
+            <div class="padding">
+                <button type="submit" ng-click="login()"
+                        class="button button-block button-balanced">
+                    Log In
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

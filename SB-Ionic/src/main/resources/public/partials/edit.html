@@ -1,0 +1,19 @@
+<ion-view title="Edit">
+    <ion-content>
+        <form novalidate="novalidate">
+            <div class="list card">
+                <label class="item item-divider" for="content">
+                    Content
+                </label>
+                <div class="item">
+                    <textarea ng-model="newsEntry.content" id="content" class="form-control"
+                              rows="10">{{newsEntry.content}}</textarea>
+                </div>
+            </div>
+            <div class="padding">
+                <button type="submit" ng-click="save()"
+                        class="button button-block button-positive">Save</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
