@@ -1,0 +1,8 @@
+.btn,.btn-primary,.btn-info,.btn-danger,btn-warning{border-radius: 4px !important; }
+.label-success,.label-info,.label-danger,.label-warning,.label-primary{border-radius: 4px !important; }
+.popover{border-radius: 4px !important; }
+.panel-heading{height:36px;padding:0px;}
+.panel-heading h5{color: #666; text-shadow: 0px 1px 0px #FFF; float: left; font-size: 12px; font-weight: bold; padding: 12px; line-height: 12px; margin: 0px;}
+.panel-heading .icon{ border-right: 1px solid #CDCDCD; padding: 11px 10px 11px 11px; float: left; opacity: 0.7}
+.func_btn{margin:5px;background-color:#fff;display:block;border:1px solid #D0D0D0;padding:3px 5px;border-radius: 4px !important;}
+input,.textInput{border-radius: 4px !important; }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="lottery" match-name="admin"/>
+  <table-filter match-catalog="lottery" match-name="article"/>
+  <table-filter match-catalog="lottery" match-name="banner"/>
+  <table-filter match-catalog="lottery" match-name="drawlog"/>
+  <table-filter match-catalog="lottery" match-name="lotteryinfo"/>
+  <table-filter match-catalog="lottery" match-name="lotterylog"/>
+  <table-filter match-catalog="lottery" match-name="lotteryplay"/>
+  <table-filter match-catalog="lottery" match-name="systeminfo"/>
+  <table-filter match-catalog="lottery" match-name="user"/>
+  <table-filter match-catalog="lottery" match-name="userbuylog"/>
+  <table-filter match-catalog="lottery" match-name="userlog"/>
+</hibernate-reverse-engineering>
