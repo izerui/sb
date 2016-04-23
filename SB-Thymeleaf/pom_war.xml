@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sb.hyh</groupId>
-	<artifactId>SB-Sample</artifactId>
+	<artifactId>SB-Thymeleaf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -16,7 +16,6 @@
 	<properties>
 		<start-class>com.sb.hyh.Application</start-class>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<druid.version>1.0.11</druid.version>
 	</properties>
 
 	<dependencies>
@@ -27,6 +26,18 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-servlet-api</artifactId>
+			<version>7.0.42</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -35,8 +46,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jetty</artifactId>
-			<scope>provided</scope>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 	</dependencies>
 

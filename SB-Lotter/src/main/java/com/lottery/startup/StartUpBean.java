@@ -1,4 +1,4 @@
-package com.lotter.startup;
+package com.lottery.startup;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
