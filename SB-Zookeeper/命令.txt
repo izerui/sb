@@ -1,0 +1,5 @@
+zkCli.sh
+create /config ""
+create /config/demoapp ""
+create /config/demoapp/msg helloworld
+quit
