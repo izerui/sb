@@ -6,13 +6,16 @@
 	<artifactId>SB-Ionic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
+
 	<parent>
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-starter-parent</artifactId>
 		<version>Angel.SR3</version>
 		<relativePath></relativePath>
 	</parent>
+
 	<properties>
+		<start-class>example.Application</start-class>
 		<spring-security.version>3.2.1.RELEASE</spring-security.version>
 		<start-class>example.Application</start-class>
 		<!-- <spring.version>4.0.3.RELEASE</spring.version> -->
@@ -20,6 +23,7 @@
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 		<java.version>1.7</java.version>
 	</properties>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -45,6 +49,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -81,4 +86,20 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
