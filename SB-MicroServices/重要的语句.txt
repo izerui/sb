@@ -3,7 +3,7 @@ https://spring.io/blog/2015/01/20/microservice-registration-and-discovery-with-s
 
 nohup java -jar -Xms128m -Xmx512m microservice-demo-0.0.1-SNAPSHOT.jar registration 7901 &
 
--javaagent:/Users/qiya/springloaded-1.2.3.RELEASE.jar -noverify
+-javaagent:c:springloaded-1.2.3.RELEASE.jar -noverify
 
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver

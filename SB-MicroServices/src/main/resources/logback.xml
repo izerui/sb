@@ -1,26 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- configuration file for LogBack (slf4J implementation)
-See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
+<!-- configuration file for LogBack (slf4J implementation) See here for more 
+	details: http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
 <configuration scan="true" scanPeriod="30 seconds">
 
-    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
-        <resetJUL>true</resetJUL>
-    </contextListener>
+	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+		<resetJUL>true</resetJUL>
+	</contextListener>
 
-    <!-- To enable JMX Management -->
-    <jmxConfigurator/>
+	<!-- To enable JMX Management -->
+	<jmxConfigurator />
 
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>${PID}: %-5level %logger{0} - %msg%n</pattern>
-        </encoder>
-    </appender>
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<!-- <pattern>%d [%t] %-5p [%c] - %m%n</pattern> -->
+			<pattern>
+				[ %-5level] [%date{yyyy-MM-dd HH:mm:ss}] %logger{96} [%line] - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+		<!-- Only log level WARN and above -->
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>debug</level>
+		</filter>
+	</appender>
 
-    <!-- Specify logging levels -->
-    <logger name="org.springframework" level="warn"/>
- 	<logger name="org.hibernate" level="warn"/>
-         
-    <root level="info">
-        <appender-ref ref="console"/>
-    </root>
+	<appender name="infoLogFile"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/log.txt</file>
+		<append>true</append>
+		<encoder>
+			<!-- <pattern>%d [%t] %-5p [%c] - %m%n</pattern> -->
+			<pattern>
+				[ %-5level] [%date{yyyy-MM-dd HH:mm:ss}] %logger{96} [%line] - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily 配置日志所生成的目录以及生成文件名的规则 -->
+			<fileNamePattern>logs/perf-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 64 MB -->
+				<maxFileSize>64MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>debug</level>
+		</filter>
+	</appender>
+
+	<!-- Enable console and infoLogFile appenders for all log messages. By default, 
+		only log at level INFO and above. -->
+	<root level="info">
+		<appender-ref ref="console" />
+		<appender-ref ref="infoLogFile" />
+	</root>
+
+	<!-- Specify logging levels -->
+	<logger name="org.springframework" level="warn" />
+	<logger name="org.hibernate" level="warn" />
+	<logger name="io.searchbox.client" level="warn" />
+	<logger name="com.netflix" level="warn" />
 </configuration>
