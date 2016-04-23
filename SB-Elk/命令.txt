@@ -1,0 +1,1 @@
+nc 192.168.99.100 5000 < /Users/patterncat/workspace/elkdemo/log/logstash-2016-02-04.log
