@@ -5,10 +5,10 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.lottery.main.StartWebApp;
+import com.lottery.main.Application;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = StartWebApp.class)
+@SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 public class TestConfig {
 
