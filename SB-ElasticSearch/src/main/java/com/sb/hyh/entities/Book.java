@@ -12,14 +12,14 @@ import lombok.Data;
 @Data
 @Document(indexName = "hong", type = "book", shards = 1, replicas = 0)
 public class Book {
-    @Id
-    private String id;
+	@Id
+	private String id;
 
-    private String title;
-    private String name;
-    private float price;
-    private boolean available;
+	private String title;
+	private String name;
+	private float price;
+	private boolean available;
 
-    @Field(type = FieldType.Nested)
-    private List<Tag> tags;
+	@Field(type = FieldType.Nested)
+	private List<Tag> tags;
 }

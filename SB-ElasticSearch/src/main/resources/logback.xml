@@ -63,4 +63,5 @@
 	<logger name="org.hibernate" level="warn" />
 	<logger name="io.searchbox.client" level="warn" />
 	<logger name="com.netflix" level="warn" />
+	<logger name="org.springframework.data.elasticsearch" level="debug" />
 </configuration>
