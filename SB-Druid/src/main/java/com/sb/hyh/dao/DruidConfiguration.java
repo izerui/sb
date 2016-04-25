@@ -40,12 +40,12 @@ public class DruidConfiguration {
 		return druidDataSource;
 	}
 
-	@Bean
-	public FilterRegistrationBean filterRegistrationBean() {
-		FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-		filterRegistrationBean.setFilter(new WebStatFilter());
-		filterRegistrationBean.addUrlPatterns("/*");
-		filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
-		return filterRegistrationBean;
-	}
+//	@Bean
+//	public FilterRegistrationBean filterRegistrationBean() {
+//		FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+//		filterRegistrationBean.setFilter(new WebStatFilter());
+//		filterRegistrationBean.addUrlPatterns("/*");
+//		filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+//		return filterRegistrationBean;
+//	}
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>updata</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+body {
+	font: 13px Arial, Helvetica, Sans-serif;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="uploadify/uploadify.css" />
+<script type="text/javascript" src="uploadify/jquery.min.js"/>
+<script type="text/javascript" src="uploadify/jquery.uploadify.min.js"/>
+<script type="text/javascript"  src="uploadify/chaffle.min.js"/>
+<script type="text/javascript">
+	$(function() {
+	$('.chaffle').chaffle().mouseover();
+		$("#file_upload").uploadify({
+			height : 25,
+			swf : 'uploadify/uploadify.swf',
+			uploader : 'customerFile',
+			width : 100,
+			removeTimeout : '10',
+			method : 'post',
+			cancelImg : 'uploadify/uploadify-cancel.png'
+		});
+	});
+</script>
+</head>
+<body>
+<span class="chaffle" data-lang="ja-hiragana"></span>
+	<div id="file_upload"></div>
+</body>
+</html>
+
