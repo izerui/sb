@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sb.hyh.service.SpringContextHolder;
+
 @Controller
 public class PageController implements EnvironmentAware {
 
@@ -19,6 +21,7 @@ public class PageController implements EnvironmentAware {
 	@RequestMapping("/hello")
 	public String hello() {
 		System.out.println("hello");
+		System.out.println(SpringContextHolder.getApplicationContext());
 		return "Hello Spring-Boot";
 	}
 }
