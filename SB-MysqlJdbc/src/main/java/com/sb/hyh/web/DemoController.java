@@ -91,9 +91,13 @@ public class DemoController {
 	@RequestMapping("/queryList")
 	public List<DemoEntity> queryList() {
 		String name = "demo";
+
 		return demoService.queryList(name);
 	}
 
+	/**
+	 * 分页查询
+	 */
 	@RequestMapping("/queryPage")
 	public Page<DemoEntity> queryPage() {
 		int page = 2;
@@ -110,14 +114,21 @@ public class DemoController {
 		return demoService.queryPage(name, ids, pager);
 	}
 
+	/**
+	 * 分页查询
+	 */
 	@RequestMapping("/queryPage2")
 	public Page<DemoEntity> queryPage2() {
 		int page = 2;
 		int size = 2;
 		Page<DemoEntity> pager = new Page<DemoEntity>(page, size);
+
 		return demoService.queryPage(pager);
 	}
 
+	/**
+	 * 事务测试
+	 */
 	@RequestMapping("/transaction")
 	public void transaction() {
 		demoService.transaction();
