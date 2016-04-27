@@ -146,7 +146,7 @@ body {
 	<!-- /container -->
 	<div id="loading"
 		style="width:32px;height:32px;position:absolute;left:40%;top:40%;display:none;">
-		<img src="/static/assets//css/images/loading.gif"
+		<img src="assets//css/images/loading.gif"
 			width="32" height="32" />
 	</div>
 </body>
