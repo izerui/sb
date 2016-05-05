@@ -16,8 +16,8 @@ import com.sb.hyh.security.CustomUserDetailsService;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Override
 	@Bean
+	@Override
 	public UserDetailsService userDetailsService() {
 		return new CustomUserDetailsService();
 	}
@@ -29,7 +29,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		// 不需要登录就可以访问
 		http.authorizeRequests().antMatchers("/", "/home").permitAll().anyRequest().authenticated().and().formLogin()
+				// 登录成功后将跳转helloadmin
 				.loginPage("/login").defaultSuccessUrl("/helloadmin").permitAll().and().logout().permitAll();
 	}
 }

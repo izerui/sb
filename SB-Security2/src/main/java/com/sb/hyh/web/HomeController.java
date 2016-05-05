@@ -30,9 +30,11 @@ public class HomeController {
 		return "login";
 	}
 
+	/**
+	 * 用户访问没有权限的页面
+	 */
 	@RequestMapping("/403")
 	public String forbidden() {
 		return "403";
 	}
-
 }

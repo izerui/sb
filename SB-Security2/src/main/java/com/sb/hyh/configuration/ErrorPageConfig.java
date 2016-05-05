@@ -15,6 +15,9 @@ public class ErrorPageConfig {
 		return new MyCustomizer();
 	}
 
+	/**
+	 * 用户访问没有权限的页面
+	 */
 	private static class MyCustomizer implements EmbeddedServletContainerCustomizer {
 
 		@Override

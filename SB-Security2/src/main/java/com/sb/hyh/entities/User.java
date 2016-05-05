@@ -7,11 +7,11 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
+	@Enumerated(EnumType.STRING)
+	private ROLE role;
 	@Id
 	private String username;
 	private String password;
-	@Enumerated(EnumType.STRING)
-	private ROLE role;
 
 	public String getUsername() {
 		return username;

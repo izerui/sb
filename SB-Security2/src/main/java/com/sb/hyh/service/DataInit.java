@@ -12,8 +12,11 @@ import com.sb.hyh.repository.UserRepository;
 @Service
 public class DataInit {
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
 
+	/**
+	 * 初始化数据
+	 */
 	@PostConstruct
 	public void dataInit() {
 		User admin = new User();
