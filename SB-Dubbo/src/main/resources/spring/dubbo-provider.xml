@@ -6,17 +6,22 @@
     http://code.alibabatech.com/schema/dubbo        
     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-	<!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
-	<dubbo:application name="consumer-of-helloworld-app" />
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="hello-world-app" />
 
-	<!-- <dubbo:annotation package="com.sb.*" /> -->
-
-	<!-- 使用multicast广播注册中心暴露发现服务地址 -->
+	<!-- 使用multicast广播注册中心暴露服务地址 -->
 	<!-- <dubbo:registry address="multicast://224.5.6.7:1234" /> -->
 
 	<!-- 使用zookeeper注册中心暴露服务地址 -->
 	<dubbo:registry address="zookeeper://172.17.80.167:2181" />
 
-	<!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
-	<dubbo:reference id="demoService" interface="com.sb.hyh.provider.DemoService" />
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="20880" />
+
+	<!-- 声明需要暴露的服务接口 -->
+	<dubbo:service interface="com.sb.hyh.provider.DemoService"
+		ref="demoService" />
+
+	<!-- 和本地bean一样实现服务 -->
+	<bean id="demoService" class="com.sb.hyh.provider.DemoServiceImpl" />
 </beans>
