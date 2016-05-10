@@ -1,4 +1,4 @@
-package com.sb.hyh.config;
+package com.sb.hyh.filter;
 
 import javax.validation.Validator;
 
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 @Configuration
-public class Config {
+public class CharacterEncodingConfig {
 
 	@Bean
 	public Validator validator() {
