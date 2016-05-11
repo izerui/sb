@@ -1,7 +1,13 @@
 package com.sb.hyh.web;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,13 +30,14 @@ public class FileToolController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/customerFile", method = RequestMethod.POST)
+	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public void uploadFile(HttpServletResponse response, HttpServletRequest request,
 			@RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
 		response.setCharacterEncoding("UTF-8");
-		String ctxPath = request.getSession().getServletContext().getRealPath("/") + "\\uploads\\";
-		System.out.println(ctxPath);
-		File tempFile = new File(ctxPath);
+
+		String contextPath = request.getSession().getServletContext().getRealPath("/") + "\\uploads\\";
+		System.out.println(contextPath);
+		File tempFile = new File(contextPath);
 		if (!tempFile.exists()) {
 			tempFile.mkdirs();
 		}
@@ -39,13 +46,36 @@ public class FileToolController {
 		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
 		for (Map.Entry<String, MultipartFile> entity : fileMap.entrySet()) {
 			MultipartFile mf = entity.getValue();
-			String fileName = mf.getOriginalFilename();
-			File uploadFile = new File(ctxPath + fileName);
+			String fileName = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + mf.getOriginalFilename();
+			File uploadFile = new File(contextPath + fileName);
 			try {
 				FileCopyUtils.copy(mf.getBytes(), uploadFile);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
+	}
+
+	@RequestMapping(value = "/download", method = RequestMethod.GET)
+	public void download(String fileName, HttpServletRequest request, HttpServletResponse response) {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("multipart/form-data");
+		response.setHeader("Content-Disposition", "attachment;fileName=" + fileName);
+		try {
+			String contextPath = request.getSession().getServletContext().getRealPath("/") + "\\uploads\\";
+			InputStream is = new FileInputStream(new File(contextPath + File.separator + fileName));
+			OutputStream os = response.getOutputStream();
+			byte[] b = new byte[2048];
+			int length;
+			while ((length = is.read(b)) > 0) {
+				os.write(b, 0, length);
+			}
+			is.close();
+			os.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }
