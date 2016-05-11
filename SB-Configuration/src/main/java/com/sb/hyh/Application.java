@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 
 import com.sb.hyh.configuration.MyCustomizer;
 
+//@PropertySource("file:conf/application.properties")
+//@PropertySource("file:conf/application.properties")
 @SpringBootApplication
 public class Application {
 

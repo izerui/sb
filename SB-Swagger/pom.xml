@@ -45,11 +45,8 @@
 		</dependency>
 
 		<!-- swagger -->
-		<!-- <dependency>
-			<groupId>com.mangofactory</groupId>
-			<artifactId>swagger-springmvc</artifactId>
-			<version>1.0.2</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>com.mangofactory</groupId> <artifactId>swagger-springmvc</artifactId> 
+			<version>1.0.2</version> </dependency> -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
@@ -60,6 +57,7 @@
 			<artifactId>springfox-swagger2</artifactId>
 			<version>${springfox.version}</version>
 		</dependency>
+		<!-- swagger -->
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
