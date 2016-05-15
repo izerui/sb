@@ -10,13 +10,13 @@ import javax.servlet.http.HttpSessionListener;
 @WebListener
 public class MyHttpSessionListener implements HttpSessionListener {
 
-    @Override
-    public void sessionCreated(HttpSessionEvent se) {
-        System.out.println("MyHttpSessionListener被创建");
-    }
+	@Override
+	public void sessionCreated(HttpSessionEvent se) {
+		System.out.println("MyHttpSessionListener被创建");
+	}
 
-    @Override
-    public void sessionDestroyed(HttpSessionEvent se) {
-        System.out.println("MyHttpSessionListener初始化");
-    }
+	@Override
+	public void sessionDestroyed(HttpSessionEvent se) {
+		System.out.println("MyHttpSessionListener初始化");
+	}
 }
