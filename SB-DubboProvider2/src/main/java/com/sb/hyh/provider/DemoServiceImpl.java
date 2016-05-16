@@ -1,5 +1,7 @@
 package com.sb.hyh.provider;
 
+import com.sb.hyh.dubbo.intf.DemoService;
+
 public class DemoServiceImpl implements DemoService {
 
 	@Override

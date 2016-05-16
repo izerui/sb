@@ -1,4 +1,4 @@
-package com.sb.hyh.provider;
+package com.sb.hyh.dubbo.intf;
 
 public interface DemoService {
 
