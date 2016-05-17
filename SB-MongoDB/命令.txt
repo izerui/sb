@@ -1,0 +1,9 @@
+show collections;      ---查看‘表’ 
+show dbs               ---查看库
+use mydb;  
+db.dropDatabase(); ---删除数据库
+db.mytable.drop();  ---删除数据表
+
+use demo; ---创建库
+db.demo.insert({name:'demo',intro:'demo is a test!'});---在表demo中插入一条数据
+db.demo.find(); ---查找所有

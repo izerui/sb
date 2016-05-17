@@ -9,16 +9,16 @@ body {
 }
 </style>
 <link rel="stylesheet" type="text/css" href="uploadify/uploadify.css" />
-<script type="text/javascript" src="uploadify/jquery.min.js"/>
-<script type="text/javascript" src="uploadify/jquery.uploadify.min.js"/>
-<script type="text/javascript"  src="uploadify/chaffle.min.js"/>
+<script type="text/javascript" src="uploadify/jquery.min.js" />
+<script type="text/javascript" src="uploadify/jquery.uploadify.min.js" />
+<script type="text/javascript" src="uploadify/chaffle.min.js" />
 <script type="text/javascript">
 	$(function() {
-	$('.chaffle').chaffle().mouseover();
+		$('.chaffle').chaffle().mouseover();
 		$("#file_upload").uploadify({
 			height : 25,
 			swf : 'uploadify/uploadify.swf',
-			uploader : 'customerFile',
+			uploader : 'upload',
 			width : 100,
 			removeTimeout : '10',
 			method : 'post',
@@ -28,7 +28,7 @@ body {
 </script>
 </head>
 <body>
-<span class="chaffle" data-lang="ja-hiragana"></span>
+	<span class="chaffle" data-lang="ja-hiragana"></span>
 	<div id="file_upload"></div>
 </body>
 </html>

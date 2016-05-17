@@ -18,5 +18,5 @@
 	<dubbo:registry address="zookeeper://172.17.80.167:2181" />
 
 	<!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
-	<dubbo:reference id="demoService" interface="com.sb.hyh.provider.DemoService" />
+	<dubbo:reference id="demoService" interface="com.sb.hyh.dubbo.intf.DemoService" />
 </beans>
