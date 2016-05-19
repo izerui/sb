@@ -3,6 +3,9 @@ package com.sb.hyh;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 
+/**
+ * war
+ */
 public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
