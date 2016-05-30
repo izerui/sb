@@ -1,9 +1,4 @@
-/**
- * Copyright &copy; 2012-2013 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- */
-package cn.conac.bpp.common.persistence.entity;
+package com.sb.hyh.persistence.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,9 +15,6 @@ import org.hibernate.validator.constraints.Length;
 
 /**
  * 数据Entity类
- * @param <T>
- * @author zhangfz
- * @version 1.0
  */
 @MappedSuperclass
 public abstract class DataEntity<T> extends BaseEntity<T> implements Serializable {
@@ -194,5 +186,4 @@ public abstract class DataEntity<T> extends BaseEntity<T> implements Serializabl
     public void setCreateBy(String createBy) {
         this.createBy = createBy;
     }
-
 }

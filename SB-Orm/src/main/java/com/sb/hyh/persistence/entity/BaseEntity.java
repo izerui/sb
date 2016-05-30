@@ -1,4 +1,4 @@
-package cn.conac.bpp.common.persistence.entity;
+package com.sb.hyh.persistence.entity;
 
 import java.io.Serializable;
 
@@ -6,22 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 
-import cn.conac.bpp.common.utils.IdGen;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-/**
- * Entity支持类
- * 
- * @param <T>
- *            泛型对象
- */
 @MappedSuperclass
 public abstract class BaseEntity<T> implements Serializable {
-
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * 编号
-	 */
 	protected String id;
 
 	public BaseEntity() {
@@ -41,12 +30,8 @@ public abstract class BaseEntity<T> implements Serializable {
 		this.id = id;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 * 
-	 * @Override public String toString() { return
-	 * ReflectionToStringBuilder.toString(this); }
-	 */
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this);
+	}
 }
