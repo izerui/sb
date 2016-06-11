@@ -14,6 +14,7 @@
 	</parent>
 
 	<properties>
+		<start-class>com.wechat.WeChatApplication</start-class>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
