@@ -1,4 +1,4 @@
-package com.sb.hyh.dao;
+package cms.config;
 
 import java.sql.SQLException;
 
@@ -17,7 +17,6 @@ import com.alibaba.druid.support.http.WebStatFilter;
 @Configuration
 public class DruidConfiguration {
 
-	// 注释掉这个,就需要密码登陆
 	@Bean
 	public ServletRegistrationBean druidServlet() {
 		return new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
