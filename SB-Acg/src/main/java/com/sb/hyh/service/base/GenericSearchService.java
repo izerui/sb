@@ -20,7 +20,7 @@ import com.sb.hyh.dao.base.GenericDao;
 /**
  * 通用查询服务
  */
-public abstract class GenericSearchServiceImpl<T, ID extends Serializable> {
+public abstract class GenericSearchService<T, ID extends Serializable> {
 	@Autowired
 	protected GenericDao<T, ID> genericDao;
 	@Autowired

@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 通用CRUD服务
  */
-public abstract class GenericServiceImpl<T, ID extends Serializable> extends GenericSearchServiceImpl<T, ID> {
+public abstract class GenericService<T, ID extends Serializable> extends GenericSearchService<T, ID> {
 
 	/**
 	 * 保存
