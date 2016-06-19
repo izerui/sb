@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sb.hyh.service.SpringContextHolder;
+import com.sb.hyh.comp.SpringContextHolder;
 
 @Controller
 public class PageController implements EnvironmentAware {

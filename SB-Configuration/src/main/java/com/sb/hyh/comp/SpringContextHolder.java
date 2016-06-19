@@ -1,4 +1,4 @@
-package com.sb.hyh.service;
+package com.sb.hyh.comp;
 
 import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;
@@ -42,7 +42,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 	}
 
 	/**
-	 * 清除SpringContextHolder中的ApplicationContext为Null.
+	 * 清除SpringContextHolder中的ApplicationContext为Null
 	 */
 	public static void clearHolder() {
 		logger.debug("清除SpringContextHolder中的ApplicationContext:" + applicationContext);
