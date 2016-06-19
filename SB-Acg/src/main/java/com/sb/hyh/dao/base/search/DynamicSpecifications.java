@@ -20,18 +20,20 @@ public class DynamicSpecifications {
      * 通过SearchFilter构建动态查询
      *
      * @param filters searchFilter表达式对象
-     * @param <T>
-     * @return
      */
     public static <T> Specification<T> bySearchFilter(final Collection<SearchFilter> filters) {
         return new Specification<T>() {
+
             @Override
             public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
                 if (filters != null && !filters.isEmpty()) {
                     List<Predicate> predicates = new ArrayList<Predicate>();
+
                     for (SearchFilter filter : filters) {
-                        if (StringUtils.isBlank(filter.fieldName) || filter.value == null || StringUtils.isBlank(filter.value.toString()))
+                        if (StringUtils.isBlank(filter.fieldName) || filter.value == null || StringUtils.isBlank(filter.value.toString())) {
                             continue; // 过滤空值条件
+                        }
+
                         // nested path translate, 如Task的名为"user.name"的filedName, 转换为Task.user.name属性
                         String[] names = StringUtils.split(filter.fieldName, ".");
                         Path expression = root.get(names[0]);

@@ -3,7 +3,7 @@ package com.sb.hyh.utils;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.sb.hyh.test.po.User;
+import cn.conac.test.po.User;
 
 public class GenericCodeUtil {
     private static String rootPackage = "com.sb.hyh";

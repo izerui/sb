@@ -50,7 +50,9 @@ public abstract class GenericSearchRestController<T, ID extends Serializable> {
      */
     @ResponseBody
     @RequestMapping("page")
-    public Response findPage(@RequestParam(defaultValue = "1") int pageNumber, @RequestParam(defaultValue = "20") int pageSize, SortObject sorts, ServletRequest request) {
+    public Response findPage(@RequestParam(defaultValue = "1") int pageNumber,
+                             @RequestParam(defaultValue = "20") int pageSize, SortObject sorts,
+                             ServletRequest request) {
         return new Response(genericService.findPage(buildSpecification(request), new PageRequest(pageNumber - 1, pageSize, buildSort(sorts))));
     }
 
@@ -77,10 +79,13 @@ public abstract class GenericSearchRestController<T, ID extends Serializable> {
      */
     protected Specification<T> buildSpecification(ServletRequest request) {
         Map<String, Object> searchParams = ServletUtil.getParametersStartingWith(request, "search_");
+
         Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
+
         Specification<T> spec = DynamicSpecifications.bySearchFilter(filters.values());
         return spec;
     }
+
 
     /**
      * 构建排序对象

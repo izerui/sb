@@ -2,11 +2,14 @@ package com.sb.hyh;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.orm.jpa.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-//@ComponentScan({"com.xuebangsoft.eduboss.tools", "com.xuebangsoft.core.webboot"})
-//@EntityScan("com.xuebangsoft.eduboss.tools.entity")
-//@EnableJpaRepositories("com.xuebangsoft.eduboss.tools.dao")
+@ComponentScan({"cn.conac.test", "com.xuebangsoft.core.webboot"})
+@EntityScan("cn.conac.test.po")
+@EnableJpaRepositories("cn.conac.test.dao")
 public class Application {
 
     public static void main(String[] args) {
