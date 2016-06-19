@@ -6,40 +6,40 @@ import java.util.Map;
 import com.sb.hyh.test.po.User;
 
 public class GenericCodeUtil {
-	private static String rootPackage = "com.sb.hyh";
-	private static String rootPackageNew = "com.sb.hyh.test";
-	
-	public static void main(String[] args) {
-		genericCode(User.class, Long.class);
-	}
+    private static String rootPackage = "com.sb.hyh";
+    private static String rootPackageNew = "cn.conac.test";
 
-	public static void genericCode(Class<?> entityClass, Class<?> IDClass) {
-		String modelName = entityClass.getSimpleName();
-		String modelPrimaryKey = IDClass.getSimpleName();
+    public static void main(String[] args) {
+        genericCode(User.class, Long.class);
+    }
 
-		String classPath = entityClass.getResource("/").getPath();
-		String sourceFolder = classPath.replace("target/classes", "src/main/java");
-		sourceFolder = sourceFolder.replace("target/test-classes", "src/main/java");
-		String packagePath = sourceFolder + rootPackageNew.replace(".", "/");
+    public static void genericCode(Class<?> entityClass, Class<?> IDClass) {
+        String modelName = entityClass.getSimpleName();
+        String modelPrimaryKey = IDClass.getSimpleName();
 
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("rootPackage", rootPackage);
-		map.put("rootPackageNew", rootPackageNew);
-		map.put("modelName", modelName);
+        String classPath = entityClass.getResource("/").getPath();
+        String sourceFolder = classPath.replace("target/classes", "src/main/java");
+        sourceFolder = sourceFolder.replace("target/test-classes", "src/main/java");
+        String packagePath = sourceFolder + rootPackageNew.replace(".", "/");
 
-		String ModelName = entityClass.getSimpleName().substring(0, 1).toLowerCase()
-				+ entityClass.getSimpleName().substring(1);
-		map.put("ModelName", ModelName);
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("rootPackage", rootPackage);
+        map.put("rootPackageNew", rootPackageNew);
+        map.put("modelName", modelName);
 
-		map.put("modelPrimaryKey", modelPrimaryKey);
+        String ModelName = entityClass.getSimpleName().substring(0, 1).toLowerCase()
+                + entityClass.getSimpleName().substring(1);
+        map.put("ModelName", ModelName);
 
-		String fileDaoName = packagePath + "/dao/" + modelName + "Dao.java";
-		FreeMarkerUtil.generate(fileDaoName, FreeMarkerUtil.getContent(map, "dao.ftl"));
+        map.put("modelPrimaryKey", modelPrimaryKey);
 
-		String fileServiceName = packagePath + "/service/" + modelName + "Service.java";
-		FreeMarkerUtil.generate(fileServiceName, FreeMarkerUtil.getContent(map, "service.ftl"));
+        String fileDaoName = packagePath + "/dao/" + modelName + "Dao.java";
+        FreeMarkerUtil.generate(fileDaoName, FreeMarkerUtil.getContent(map, "dao.ftl"));
 
-		String fileControllerName = packagePath + "/controller/" + modelName + "Controller.java";
-		FreeMarkerUtil.generate(fileControllerName, FreeMarkerUtil.getContent(map, "controller.ftl"));
-	}
+        String fileServiceName = packagePath + "/service/" + modelName + "Service.java";
+        FreeMarkerUtil.generate(fileServiceName, FreeMarkerUtil.getContent(map, "service.ftl"));
+
+        String fileControllerName = packagePath + "/controller/" + modelName + "Controller.java";
+        FreeMarkerUtil.generate(fileControllerName, FreeMarkerUtil.getContent(map, "controller.ftl"));
+    }
 }

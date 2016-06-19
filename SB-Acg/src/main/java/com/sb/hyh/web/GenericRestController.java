@@ -16,8 +16,8 @@ public abstract class GenericRestController<T, ID extends Serializable> extends 
     /**
      * 保存
      */
-    @RequestMapping("save")
     @ResponseBody
+    @RequestMapping("save")
     public <S extends T> Response save(S entity) {
         genericService.save(entity);
         return new Response("保存成功");
@@ -26,8 +26,8 @@ public abstract class GenericRestController<T, ID extends Serializable> extends 
     /**
      * 通过ID删除
      */
-    @RequestMapping("delete")
     @ResponseBody
+    @RequestMapping("delete")
     public Response delete(@RequestParam ID id) {
         genericService.delete(id);
         return new Response("删除成功");
@@ -36,8 +36,8 @@ public abstract class GenericRestController<T, ID extends Serializable> extends 
     /**
      * 通过ID批量删除
      */
-    @RequestMapping("batchDelete")
     @ResponseBody
+    @RequestMapping("batchDelete")
     public Response batchDelete(@RequestParam ID[] ids) {
         genericService.delete(Arrays.asList(ids));
         return new Response("删除成功");

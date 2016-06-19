@@ -1,6 +1,7 @@
 package com.sb.hyh.service.base;
 
 import com.sb.hyh.dao.base.search.DynamicSpecifications;
+import com.sb.hyh.dao.base.search.Operator;
 import com.sb.hyh.dao.base.search.SearchFilter;
 import com.sb.hyh.vo.ITreeNode;
 import com.sb.hyh.vo.TreeNode;
@@ -15,7 +16,6 @@ import java.util.List;
  * 通用树型ID实体服务
  */
 public abstract class GenericTreeNodeService<T extends ITreeNode<T>, ID extends Serializable> extends GenericService<T, ID> {
-
     /**
      * 从根节点递归获取所有children
      * 数据量较大的实体请避免调用此函数,否则可能导致内存不足
@@ -39,26 +39,14 @@ public abstract class GenericTreeNodeService<T extends ITreeNode<T>, ID extends 
         List<TreeNode> nodes = new ArrayList<TreeNode>();
 
         List<SearchFilter> filters = new ArrayList<SearchFilter>();
-        filters.add(new SearchFilter("id", SearchFilter.Operator.LT, 100));
+        filters.add(new SearchFilter("id", Operator.LT, 100));
         Specification<T> spec = DynamicSpecifications.bySearchFilter(filters);
         List<T> list = genericDao.findAll(spec);
+
         for (int i = 0; i < list.size(); i++) {
             nodes.add(new TreeNode(list.get(i), level));
         }
-        Collections.sort(nodes);
-        return nodes;
-    }
 
-    /**
-     * 根据ID递归该ID指定层级的parent节点和children节点
-     */
-    public List<TreeNode> getNodes(ID id, int level) {
-        List<TreeNode> nodes = new ArrayList<TreeNode>();
-        T treeNode = genericDao.findOne(id);
-        if (treeNode == null) {
-            return nodes;
-        }
-        nodes.add(new TreeNode(treeNode, level));
         Collections.sort(nodes);
         return nodes;
     }
@@ -76,5 +64,22 @@ public abstract class GenericTreeNodeService<T extends ITreeNode<T>, ID extends 
             }
             return list.get(0).getChildren();
         }
+    }
+
+    /**
+     * 根据ID递归该ID指定层级的parent节点和children节点
+     */
+    public List<TreeNode> getNodes(ID id, int level) {
+        List<TreeNode> nodes = new ArrayList<TreeNode>();
+
+        T treeNode = genericDao.findOne(id);
+        if (treeNode == null) {
+            return nodes;
+        }
+
+        nodes.add(new TreeNode(treeNode, level));
+        Collections.sort(nodes);
+
+        return nodes;
     }
 }

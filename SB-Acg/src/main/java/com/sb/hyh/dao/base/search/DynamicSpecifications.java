@@ -14,7 +14,6 @@ import java.util.List;
  * 动态查询构造器
  */
 public class DynamicSpecifications {
-
     private static Logger logger = LoggerFactory.getLogger(DynamicSpecifications.class);
 
     /**

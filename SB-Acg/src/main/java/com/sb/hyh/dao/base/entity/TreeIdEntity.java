@@ -19,7 +19,7 @@ public abstract class TreeIdEntity<T extends TreeIdEntity> implements Serializab
     protected String id;
 
     @Id
-    @GenericGenerator(name = "generator", strategy = "com.xuebang.o2o.core.repository.entity.strategy.TreeIdGenerator")
+    @GenericGenerator(name = "generator", strategy = "com.sb.hyh.dao.base.entity.strategy.TreeIdGenerator")
     @GeneratedValue(generator = "generator")
     public String getId() {
         return id;
@@ -28,5 +28,4 @@ public abstract class TreeIdEntity<T extends TreeIdEntity> implements Serializab
     public void setId(String id) {
         this.id = id;
     }
-
 }

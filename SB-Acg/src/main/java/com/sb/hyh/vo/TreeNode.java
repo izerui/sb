@@ -1,5 +1,6 @@
 package com.sb.hyh.vo;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -55,6 +56,7 @@ public class TreeNode implements ITreeNode<TreeNode>, Comparable<TreeNode> {
         this.id = node.getId();
         this.name = node.getName();
         this.sort = node.getSort();
+
         generateParent(this, node, maxLevel, 1);
         generateChildren(this, node, maxLevel, 1);
     }
@@ -95,8 +97,10 @@ public class TreeNode implements ITreeNode<TreeNode>, Comparable<TreeNode> {
                 childNode.id = childEntity.getId();
                 childNode.name = childEntity.getName();
                 childNode.sort = childEntity.getSort();
+
                 node.children.add(childNode);
                 Collections.sort(node.children);
+
                 generateChildren(childNode, childEntity, maxLevel, ++currentLevel);
             }
         }

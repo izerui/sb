@@ -21,8 +21,8 @@ public class GenericTreeNodeRestController<T extends ITreeNode<T>, ID extends Se
     /**
      * 获取子节点数组
      */
-    @RequestMapping("getChildren")
     @ResponseBody
+    @RequestMapping("getChildren")
     public Collection<TreeNode> getChildren(@RequestParam ID id) {
         return genericTreeNodeService.getChildren(id);
     }
@@ -30,8 +30,8 @@ public class GenericTreeNodeRestController<T extends ITreeNode<T>, ID extends Se
     /**
      * 从顶级节点或指定ID节点迭代指定层数节点
      */
-    @RequestMapping("getNodes")
     @ResponseBody
+    @RequestMapping("getNodes")
     public Collection<TreeNode> getNodes(ID id, @RequestParam(defaultValue = "0") int level) {
         if (id != null) {
             return genericTreeNodeService.getNodes(id, level);
