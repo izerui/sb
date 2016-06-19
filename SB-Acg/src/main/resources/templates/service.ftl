@@ -15,6 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class ${modelName}Service extends GenericServiceImpl<${modelName}, ${modelPrimaryKey}> {
 
 	@Autowired
-	private OpenapiBanjieDao openapiBanjieDao;
+	private ${modelName}Dao ${ModelName}Dao;
 
 }

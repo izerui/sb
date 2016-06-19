@@ -3,13 +3,13 @@ package com.sb.hyh.main;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.sb.hyh.po.OpenapiBanjie;
+import com.sb.hyh.po.User;
 
 public class GenericCodeUtil {
 	private static String rootPackage = "com.sb.hyh";
 
 	public static void main(String[] args) {
-		genericCode(OpenapiBanjie.class, String.class);
+		genericCode(User.class, Long.class);
 	}
 
 	public static void genericCode(Class<?> entityClass, Class<?> IDClass) {
