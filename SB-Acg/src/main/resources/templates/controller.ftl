@@ -1,8 +1,8 @@
-package ${rootPackage}.controller;
+package ${rootPackageNew}.controller;
 
-import ${rootPackage}.po.${modelName};
+import ${rootPackageNew}.po.${modelName};
 import org.springframework.beans.factory.annotation.Autowired;
-import ${rootPackage}.service.${modelName}Service;
+import ${rootPackageNew}.service.${modelName}Service;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

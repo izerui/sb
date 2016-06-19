@@ -1,6 +1,6 @@
-package ${rootPackage}.dao;
+package ${rootPackageNew}.dao;
 
-import ${rootPackage}.po.${modelName};
+import ${rootPackageNew}.po.${modelName};
 import ${rootPackage}.dao.base.GenericDao;
 
 /**

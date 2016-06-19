@@ -3,11 +3,12 @@ package com.sb.hyh.main;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.sb.hyh.po.User;
+import com.sb.hyh.test.po.User;
 
 public class GenericCodeUtil {
 	private static String rootPackage = "com.sb.hyh";
-
+	private static String rootPackageNew = "com.sb.hyh.test";
+	
 	public static void main(String[] args) {
 		genericCode(User.class, Long.class);
 	}
@@ -19,10 +20,11 @@ public class GenericCodeUtil {
 		String classPath = entityClass.getResource("/").getPath();
 		String sourceFolder = classPath.replace("target/classes", "src/main/java");
 		sourceFolder = sourceFolder.replace("target/test-classes", "src/main/java");
-		String packagePath = sourceFolder + rootPackage.replace(".", "/");
+		String packagePath = sourceFolder + rootPackageNew.replace(".", "/");
 
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("rootPackage", rootPackage);
+		map.put("rootPackageNew", rootPackageNew);
 		map.put("modelName", modelName);
 
 		String ModelName = entityClass.getSimpleName().substring(0, 1).toLowerCase()

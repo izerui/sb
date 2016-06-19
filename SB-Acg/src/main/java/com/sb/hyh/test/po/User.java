@@ -1,4 +1,4 @@
-package com.sb.hyh.po;
+package com.sb.hyh.test.po;
 
 import java.io.Serializable;
 
