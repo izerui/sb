@@ -1,4 +1,4 @@
-package com.sb.hyh.dao.base.entity.strategy;
+package com.sb.hyh.entity.strategy;
 
 import com.sb.hyh.vo.ITreeNode;
 import org.apache.commons.lang3.StringUtils;

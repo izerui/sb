@@ -19,7 +19,7 @@ public abstract class GenericRestController<T, ID extends Serializable> extends 
     @ResponseBody
     @RequestMapping("save")
     public <S extends T> Response save(S entity) {
-        genericService.save(entity);
+        baseService.save(entity);
         return new Response("保存成功");
     }
 
@@ -29,7 +29,7 @@ public abstract class GenericRestController<T, ID extends Serializable> extends 
     @ResponseBody
     @RequestMapping("delete")
     public Response delete(@RequestParam ID id) {
-        genericService.delete(id);
+        baseService.delete(id);
         return new Response("删除成功");
     }
 
@@ -39,7 +39,7 @@ public abstract class GenericRestController<T, ID extends Serializable> extends 
     @ResponseBody
     @RequestMapping("batchDelete")
     public Response batchDelete(@RequestParam ID[] ids) {
-        genericService.delete(Arrays.asList(ids));
+        baseService.delete(Arrays.asList(ids));
         return new Response("删除成功");
     }
 }

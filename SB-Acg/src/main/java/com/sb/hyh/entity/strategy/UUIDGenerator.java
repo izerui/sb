@@ -1,6 +1,6 @@
-package com.sb.hyh.dao.base.entity.strategy;
+package com.sb.hyh.entity.strategy;
 
-import com.sb.hyh.dao.base.entity.UUIDEntity;
+import com.sb.hyh.entity.UUIDEntity;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;

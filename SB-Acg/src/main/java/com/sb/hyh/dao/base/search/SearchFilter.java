@@ -18,9 +18,6 @@ public class SearchFilter {
         this.operator = operator;
     }
 
-    /**
-     * searchParams中key的格式为OPERATOR_FIELDNAME
-     */
     public static Map<String, SearchFilter> parse(Map<String, Object> searchParams) {
         Map<String, SearchFilter> filters = new HashMap<String, SearchFilter>();
 
@@ -38,6 +35,7 @@ public class SearchFilter {
                 value = true;
             }
 
+            // searchParams中key的格式为OPERATOR_FIELDNAME
             // 拆分operator与filedAttribute
             String[] names = StringUtils.split(key, "_");
             if (names.length != 2) {

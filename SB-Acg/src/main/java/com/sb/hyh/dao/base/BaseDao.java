@@ -10,5 +10,5 @@ import java.io.Serializable;
  * 通用CRUD Dao接口
  */
 @NoRepositoryBean
-public interface GenericDao<T, ID extends Serializable> extends JpaRepository<T, ID>, JpaSpecificationExecutor<T> {
+public interface BaseDao<T, ID extends Serializable> extends JpaRepository<T, ID>, JpaSpecificationExecutor<T> {
 }

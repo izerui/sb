@@ -1,4 +1,4 @@
-package com.sb.hyh.dao.base.entity;
+package com.sb.hyh.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

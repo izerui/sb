@@ -58,6 +58,7 @@ public class TreeNode implements ITreeNode<TreeNode>, Comparable<TreeNode> {
         this.sort = node.getSort();
 
         generateParent(this, node, maxLevel, 1);
+
         generateChildren(this, node, maxLevel, 1);
     }
 

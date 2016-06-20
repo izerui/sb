@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * 通用树型ID实体服务
  */
-public abstract class GenericTreeNodeService<T extends ITreeNode<T>, ID extends Serializable> extends GenericService<T, ID> {
+public abstract class BaseTreeNodeService<T extends ITreeNode<T>, ID extends Serializable> extends BaseService<T, ID> {
     /**
      * 从根节点递归获取所有children
      * 数据量较大的实体请避免调用此函数,否则可能导致内存不足
@@ -26,22 +26,15 @@ public abstract class GenericTreeNodeService<T extends ITreeNode<T>, ID extends 
     }
 
     /**
-     * 根据ID递归所有
-     */
-    public List<TreeNode> getNodes(ID id) {
-        return getNodes(id, Integer.MAX_VALUE);
-    }
-
-    /**
      * 从根节点指定层级递归获取children
      */
     public List<TreeNode> getNodes(int level) {
         List<TreeNode> nodes = new ArrayList<TreeNode>();
 
         List<SearchFilter> filters = new ArrayList<SearchFilter>();
-        filters.add(new SearchFilter("id", Operator.LT, 100));
+        filters.add(new SearchFilter("id", Operator.EQ, 1));
         Specification<T> spec = DynamicSpecifications.bySearchFilter(filters);
-        List<T> list = genericDao.findAll(spec);
+        List<T> list = baseDao.findAll(spec);
 
         for (int i = 0; i < list.size(); i++) {
             nodes.add(new TreeNode(list.get(i), level));
@@ -49,6 +42,13 @@ public abstract class GenericTreeNodeService<T extends ITreeNode<T>, ID extends 
 
         Collections.sort(nodes);
         return nodes;
+    }
+
+    /**
+     * 根据ID递归所有
+     */
+    public List<TreeNode> getNodes(ID id) {
+        return getNodes(id, Integer.MAX_VALUE);
     }
 
     /**
@@ -72,7 +72,7 @@ public abstract class GenericTreeNodeService<T extends ITreeNode<T>, ID extends 
     public List<TreeNode> getNodes(ID id, int level) {
         List<TreeNode> nodes = new ArrayList<TreeNode>();
 
-        T treeNode = genericDao.findOne(id);
+        T treeNode = baseDao.findOne(id);
         if (treeNode == null) {
             return nodes;
         }

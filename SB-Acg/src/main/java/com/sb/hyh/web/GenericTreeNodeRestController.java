@@ -1,6 +1,6 @@
 package com.sb.hyh.web;
 
-import com.sb.hyh.service.base.GenericTreeNodeService;
+import com.sb.hyh.service.base.BaseTreeNodeService;
 import com.sb.hyh.vo.ITreeNode;
 import com.sb.hyh.vo.TreeNode;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.Collection;
  */
 public class GenericTreeNodeRestController<T extends ITreeNode<T>, ID extends Serializable> extends GenericRestController<T, ID> {
     @Autowired
-    protected GenericTreeNodeService<T, ID> genericTreeNodeService;
+    protected BaseTreeNodeService<T, ID> genericTreeNodeService;
 
     /**
      * 获取子节点数组

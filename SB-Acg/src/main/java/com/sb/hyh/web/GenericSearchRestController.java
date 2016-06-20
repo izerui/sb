@@ -4,7 +4,7 @@ import com.sb.hyh.dao.base.search.DynamicSpecifications;
 import com.sb.hyh.dao.base.search.SearchFilter;
 import com.sb.hyh.dao.base.search.SortItem;
 import com.sb.hyh.dao.base.search.SortObject;
-import com.sb.hyh.service.base.GenericService;
+import com.sb.hyh.service.base.BaseService;
 import com.sb.hyh.utils.ServletUtil;
 import com.sb.hyh.vo.Response;
 import org.apache.commons.lang3.StringUtils;
@@ -25,7 +25,7 @@ import java.util.Map;
  */
 public abstract class GenericSearchRestController<T, ID extends Serializable> {
     @Autowired
-    protected GenericService<T, ID> genericService;
+    protected BaseService<T, ID> baseService;
 
     /**
      * 通过ID查找
@@ -33,7 +33,7 @@ public abstract class GenericSearchRestController<T, ID extends Serializable> {
     @ResponseBody
     @RequestMapping("findById")
     public Response findById(@RequestParam ID id) {
-        return new Response(genericService.findById(id));
+        return new Response(baseService.findById(id));
     }
 
     /**
@@ -42,7 +42,7 @@ public abstract class GenericSearchRestController<T, ID extends Serializable> {
     @ResponseBody
     @RequestMapping("exists")
     public Response exists(ID id) {
-        return new Response(genericService.exists(id));
+        return new Response(baseService.exists(id));
     }
 
     /**
@@ -53,7 +53,7 @@ public abstract class GenericSearchRestController<T, ID extends Serializable> {
     public Response findPage(@RequestParam(defaultValue = "1") int pageNumber,
                              @RequestParam(defaultValue = "20") int pageSize, SortObject sorts,
                              ServletRequest request) {
-        return new Response(genericService.findPage(buildSpecification(request), new PageRequest(pageNumber - 1, pageSize, buildSort(sorts))));
+        return new Response(baseService.findPage(buildSpecification(request), new PageRequest(pageNumber - 1, pageSize, buildSort(sorts))));
     }
 
     /**
@@ -62,7 +62,7 @@ public abstract class GenericSearchRestController<T, ID extends Serializable> {
     @ResponseBody
     @RequestMapping("count")
     public Response count(ServletRequest request) {
-        return new Response(genericService.count(buildSpecification(request)));
+        return new Response(baseService.count(buildSpecification(request)));
     }
 
     /**
@@ -71,7 +71,7 @@ public abstract class GenericSearchRestController<T, ID extends Serializable> {
     @ResponseBody
     @RequestMapping("all")
     public Response findAll(ServletRequest request, SortObject sorts) {
-        return new Response(genericService.findAll(buildSpecification(request), buildSort(sorts)));
+        return new Response(baseService.findAll(buildSpecification(request), buildSort(sorts)));
     }
 
     /**
@@ -79,9 +79,7 @@ public abstract class GenericSearchRestController<T, ID extends Serializable> {
      */
     protected Specification<T> buildSpecification(ServletRequest request) {
         Map<String, Object> searchParams = ServletUtil.getParametersStartingWith(request, "search_");
-
         Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
-
         Specification<T> spec = DynamicSpecifications.bySearchFilter(filters.values());
         return spec;
     }

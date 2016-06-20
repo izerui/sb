@@ -67,6 +67,7 @@ public class ServletUtil {
     /**
      * 根据浏览器 If-None-Match Header, 计算Etag是否已无效.
      * 如果Etag有效, checkIfNoneMatch返回false, 设置304 not modify status.
+     *
      * @param etag 内容的ETag.
      */
     public static boolean checkIfNoneMatchEtag(HttpServletRequest request, HttpServletResponse response, String etag) {
@@ -118,24 +119,25 @@ public class ServletUtil {
     }
 
     /**
-     * 取得带相同前缀的Request Parameters, copy from spring WebUtils.
-     * 返回的结果的Parameter名已去除前缀.
+     * 取得带相同前缀的Request Parameters,copy from spring WebUtils.返回的结果的Parameter名已去除前缀.
      */
     public static Map<String, Object> getParametersStartingWith(ServletRequest request, String prefix) {
         Validate.notNull(request, "Request must not be null");
 
-        Enumeration paramNames = request.getParameterNames();
-        Map<String, Object> params = new TreeMap<String, Object>();
         if (prefix == null) {
             prefix = "";
         }
+
+        Enumeration paramNames = request.getParameterNames();
+        Map<String, Object> params = new TreeMap<String, Object>();
         while ((paramNames != null) && paramNames.hasMoreElements()) {
             String paramName = (String) paramNames.nextElement();
             if ("".equals(prefix) || paramName.startsWith(prefix)) {
                 String unprefixed = paramName.substring(prefix.length());
                 String[] values = request.getParameterValues(paramName);
+                // Do nothing, no values found at all.
                 if ((values == null) || (values.length == 0)) {
-                    // Do nothing, no values found at all.
+
                 } else if (values.length > 1) {
                     params.put(unprefixed, values);
                 } else {

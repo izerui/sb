@@ -6,34 +6,34 @@ import java.io.Serializable;
 /**
  * 通用CRUD服务
  */
-public abstract class GenericService<T, ID extends Serializable> extends GenericSearchService<T, ID> {
+public abstract class BaseService<T, ID extends Serializable> extends BaseSearchService<T, ID> {
 
     /**
      * 保存
      */
     public <S extends T> void save(S entity) {
-        genericDao.save(entity);
+        baseDao.save(entity);
     }
 
     /**
      * 批量保存
      */
     public <S extends T> Iterable<S> save(Iterable<S> entities) {
-        return genericDao.save(entities);
+        return baseDao.save(entities);
     }
 
     /**
      * 通过ID删除
      */
     public void delete(ID id) {
-        genericDao.delete(id);
+        baseDao.delete(id);
     }
 
     /**
      * 删除实体
      */
     public void delete(T entity) {
-        genericDao.delete(entity);
+        baseDao.delete(entity);
     }
 
     /**

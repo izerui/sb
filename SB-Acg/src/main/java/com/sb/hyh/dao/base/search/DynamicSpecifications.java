@@ -18,8 +18,6 @@ public class DynamicSpecifications {
 
     /**
      * 通过SearchFilter构建动态查询
-     *
-     * @param filters searchFilter表达式对象
      */
     public static <T> Specification<T> bySearchFilter(final Collection<SearchFilter> filters) {
         return new Specification<T>() {
@@ -30,8 +28,9 @@ public class DynamicSpecifications {
                     List<Predicate> predicates = new ArrayList<Predicate>();
 
                     for (SearchFilter filter : filters) {
+                        // 过滤空值条件
                         if (StringUtils.isBlank(filter.fieldName) || filter.value == null || StringUtils.isBlank(filter.value.toString())) {
-                            continue; // 过滤空值条件
+                            continue;
                         }
 
                         // nested path translate, 如Task的名为"user.name"的filedName, 转换为Task.user.name属性
@@ -97,9 +96,11 @@ public class DynamicSpecifications {
                     if (!predicates.isEmpty()) {
                         return builder.and(predicates.toArray(new Predicate[predicates.size()]));
                     }
+
+                    return builder.disjunction();
                 }
 
-                return builder.disjunction();
+                return null;
             }
         };
     }

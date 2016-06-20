@@ -1,11 +1,11 @@
 package ${rootPackageNew}.dao;
 
 import ${rootPackageNew}.po.${modelName};
-import ${rootPackage}.dao.base.GenericDao;
+import ${rootPackage}.dao.base.BaseDao;
 
 /**
  *
  */
-public interface ${modelName}Dao extends GenericDao<${modelName}, ${modelPrimaryKey}> {
+public interface ${modelName}Dao extends BaseDao<${modelName}, ${modelPrimaryKey}> {
 
 }

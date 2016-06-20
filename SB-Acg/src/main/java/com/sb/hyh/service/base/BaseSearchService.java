@@ -1,7 +1,7 @@
 package com.sb.hyh.service.base;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sb.hyh.dao.base.GenericDao;
+import com.sb.hyh.dao.base.BaseDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +19,9 @@ import java.util.List;
 /**
  * 通用查询服务
  */
-public abstract class GenericSearchService<T, ID extends Serializable> {
+public abstract class BaseSearchService<T, ID extends Serializable> {
     @Autowired
-    protected GenericDao<T, ID> genericDao;
+    protected BaseDao<T, ID> baseDao;
     @Autowired
     protected JdbcTemplate jdbcTemplate;
     /**
@@ -46,69 +46,69 @@ public abstract class GenericSearchService<T, ID extends Serializable> {
      * 动态条件分页查询
      */
     public Page<T> findPage(Specification<T> specification, PageRequest pageRequest) {
-        return genericDao.findAll(specification, pageRequest);
+        return baseDao.findAll(specification, pageRequest);
     }
 
     /**
      * 通过ID查找
      */
     public T findById(ID id) {
-        return genericDao.findOne(id);
+        return baseDao.findOne(id);
     }
 
     /**
      * 通过动态条件查找
      */
     public T findBySpecification(Specification<T> specification) {
-        return genericDao.findOne(specification);
+        return baseDao.findOne(specification);
     }
 
     /**
      * 通过ID判断是否存在
      */
     public boolean exists(ID id) {
-        return genericDao.exists(id);
+        return baseDao.exists(id);
     }
 
     /**
      * 查询数量
      */
     public long count() {
-        return genericDao.count();
+        return baseDao.count();
     }
 
     /**
      * 动态条件查询数量
      */
     public long count(Specification<T> specification) {
-        return genericDao.count(specification);
+        return baseDao.count(specification);
     }
 
     /**
      * 查询所有
      */
     public List<T> findAll() {
-        return genericDao.findAll();
+        return baseDao.findAll();
     }
 
     /**
      * 动态条件查询所有
      */
     public List<T> findAll(Specification<T> specification) {
-        return genericDao.findAll(specification);
+        return baseDao.findAll(specification);
     }
 
     /**
      * 动态条件查询所有
      */
     public List<T> findAll(Sort sort) {
-        return genericDao.findAll(sort);
+        return baseDao.findAll(sort);
     }
 
     /**
      * 动态条件查询所有
      */
     public List<T> findAll(Specification<T> specification, Sort sort) {
-        return genericDao.findAll(specification, sort);
+        return baseDao.findAll(specification, sort);
     }
 }
