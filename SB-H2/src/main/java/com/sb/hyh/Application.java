@@ -1,5 +1,7 @@
 package com.sb.hyh;
 
+import java.util.List;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -20,5 +22,10 @@ public class Application {
 		postRepository.save(new Post("title4", "content4"));
 		postRepository.save(new Post("title5", "content5"));
 		System.out.println(postRepository.count());
+
+		List<Post> list = (List<Post>) postRepository.findAll();
+		for (Post post : list) {
+			System.out.println(post);
+		}
 	}
 }
