@@ -11,6 +11,6 @@ public class TestController {
     @RequestMapping("/")
     public String test() {
         System.out.println("test");
-        return "index";
+        return "test";
     }
 }
