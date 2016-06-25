@@ -16,6 +16,7 @@ import com.google.common.collect.ImmutableMap;
  */
 @Component
 public class BaiDuProxy {
+
 	@Bean
 	public Servlet baiduProxyServlet() {
 		return new ProxyServlet();
