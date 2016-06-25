@@ -13,15 +13,11 @@ public class IndexController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(@RequestParam String key, @RequestParam String value) {
-		System.out.println(key);
-		System.out.println(value);
-		System.out.println("index");
-		return "index";
+		return key + ":" + value;
 	}
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String test(@RequestParam String password) {
-		System.out.println(password);
-		return "index";
+		return password;
 	}
 }

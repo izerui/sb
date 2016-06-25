@@ -16,13 +16,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Component
 public class ServiceMonitor {
 
-	@Before("execution(* com.sb.hyh..*Service.*(..))")
-	public void logServiceAccess(JoinPoint joinPoint) {
-		System.out.println("Completed: " + joinPoint);
-	}
-
 	@Before("execution(* com.sb.hyh..*Controller.*(..))")
-	public void logServiceAccess2(JoinPoint joinPoint) {
+	public void logAccess(JoinPoint joinPoint) {
 		System.out.println("Completed: " + joinPoint);
 
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
