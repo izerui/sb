@@ -29,7 +29,7 @@ public class ServiceMonitor {
 
 		Map<String, String[]> paramMap = request.getParameterMap();
 		StringBuffer params = new StringBuffer();
-		if (paramMap != null && !paramMap.isEmpty()) {
+		if (paramMap != null && paramMap.size() > 0) {
 			for (Map.Entry<String, String[]> param : paramMap.entrySet()) {
 				if ("".equals(params.toString())) {
 					params.append(param.getKey() + "=");
