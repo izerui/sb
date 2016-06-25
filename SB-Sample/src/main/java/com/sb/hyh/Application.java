@@ -1,9 +1,12 @@
 package com.sb.hyh;
 
+import java.util.Arrays;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @EnableAutoConfiguration
 @SpringBootApplication
@@ -11,7 +14,12 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+		String[] names = context.getBeanDefinitionNames();
+		Arrays.sort(names);
+		for (String string : names) {
+			System.err.println(string);
+		}
 	}
 
 	/**
