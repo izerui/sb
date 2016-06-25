@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class IndexController {
-	public static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+    public static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index() {
-		System.out.println("index");
-		return "index";
-	}
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index() {
+        System.out.println("index");
+        return "index";
+    }
 
-	@RequestMapping(value = "/index2", method = RequestMethod.GET)
-	public String index2() {
-		System.out.println("index2");
-		return "index2";
-	}
+    @RequestMapping(value = "/index2", method = RequestMethod.GET)
+    public String index2() {
+        System.out.println("index2");
+        return "index2";
+    }
 }
