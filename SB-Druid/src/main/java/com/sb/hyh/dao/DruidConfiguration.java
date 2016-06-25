@@ -18,10 +18,10 @@ import com.alibaba.druid.support.http.WebStatFilter;
 public class DruidConfiguration {
 
 	// 注释掉这个,就需要密码登陆
-	// @Bean
-	// public ServletRegistrationBean druidServlet() {
-	// return new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
-	// }
+	@Bean
+	public ServletRegistrationBean druidServlet() {
+		return new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
+	}
 
 	@Bean
 	public DataSource druidDataSource(@Value("${spring.datasource.driverClassName}") String driver,
@@ -32,6 +32,7 @@ public class DruidConfiguration {
 		druidDataSource.setUrl(url);
 		druidDataSource.setUsername(username);
 		druidDataSource.setPassword(password);
+
 		try {
 			druidDataSource.setFilters("stat, wall");
 		} catch (SQLException e) {
@@ -40,12 +41,12 @@ public class DruidConfiguration {
 		return druidDataSource;
 	}
 
-//	@Bean
-//	public FilterRegistrationBean filterRegistrationBean() {
-//		FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-//		filterRegistrationBean.setFilter(new WebStatFilter());
-//		filterRegistrationBean.addUrlPatterns("/*");
-//		filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
-//		return filterRegistrationBean;
-//	}
+	@Bean
+	public FilterRegistrationBean filterRegistrationBean() {
+		FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+		filterRegistrationBean.setFilter(new WebStatFilter());
+		filterRegistrationBean.addUrlPatterns("/*");
+		filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+		return filterRegistrationBean;
+	}
 }
